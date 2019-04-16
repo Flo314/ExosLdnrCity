@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/action_alert"
+        android:title="Alert"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_add_alert_black_24dp"/>
+
+    <item
         android:id="@+id/action_add"
         android:title="Ajouter"
         app:showAsAction="ifRoom"

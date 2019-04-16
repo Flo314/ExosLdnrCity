@@ -2,6 +2,7 @@ package com.oim.recyclerview;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -73,14 +74,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemThatWasClicked = item.getItemId();
-        if (itemThatWasClicked == R.id.action_add) {
+        if (itemThatWasClicked == R.id.action_alert) {
             Context context = MainActivity.this;
-            String textToShow = "Add clicked";
+            String textToShow = "Alert clicked";
             Toast.makeText(this, textToShow, Toast.LENGTH_SHORT).show();
 
+            // AlertDialog
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
-           View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.custom_dialog_layout, null);
+            View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.custom_dialog_layout, null);
 
             TextView title = (TextView) view.findViewById(R.id.title);
             ImageButton imageButton = (ImageButton) view.findViewById(R.id.image);
@@ -89,13 +91,14 @@ public class MainActivity extends AppCompatActivity {
 
             imageButton.setImageResource(R.drawable.smile);
 
+            // button Yes de l'alert
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     Toast.makeText(MainActivity.this, "Thank you", Toast.LENGTH_SHORT).show();
                 }
             });
-
+            // button No de l'alert
             builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -106,6 +109,12 @@ public class MainActivity extends AppCompatActivity {
             builder.setView(view);
             builder.show();
              return true;
+        }
+        if(itemThatWasClicked == R.id.action_add){
+            Context context = MainActivity.this;
+            String textToShow = "Add clicked";
+            Toast.makeText(this, textToShow, Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(context, FormulaireAdd.class));
         }
         return super.onOptionsItemSelected(item);
     }
