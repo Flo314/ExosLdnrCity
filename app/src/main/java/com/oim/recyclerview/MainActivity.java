@@ -62,6 +62,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+        recyclerView.setAdapter(new MyAdapter(MyObject.getCapitalsList()));
+    }
+
     // test ajout object
     private void ajouterVilles() {
         MyObject.addCities(new MyObject("Paris", "France", "5M", "https://www.telegraph.co.uk/travel/destination/article130148.ece/ALTERNATES/w620/parisguidetower.jpg"));

@@ -14,7 +14,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     //ajouter un constructeur prenant en entrée une liste
     public MyAdapter(List<MyObject> list) {
-        this.list = MyObject.getCapitalsList();
+        this.list = list;
     }
 
     //cette fonction permet de créer les viewHolder
