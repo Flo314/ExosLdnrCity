@@ -24,7 +24,6 @@ public class FormulaireAdd extends AppCompatActivity {
     private EditText namePays;
     private EditText numberLiving;
     private EditText imgCity;
-    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +55,6 @@ public class FormulaireAdd extends AppCompatActivity {
             simpleDialog.show(getSupportFragmentManager(),"example simple dialog" );
         }else {
             MyObject.addCities(new MyObject(entercity,enterpays,enterliving,enterimg));
-
             entercity = null;
             enterpays = null;
             enterliving = null;

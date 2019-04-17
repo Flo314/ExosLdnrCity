@@ -32,6 +32,10 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
         numberOfLiving.setText(myObject.getNumberOfLiving());
 
         // Ici nous utilisons Picasso binder l'image depuis une URL à notre imageView.
-        Picasso.with(imageView.getContext()).load(myObject.getImageUrl()).centerCrop().fit().into(imageView);
+        Picasso.with(imageView.getContext())
+                .load(myObject.getImageUrl())
+                .centerCrop()
+                .fit()
+                .into(imageView);
     }
 }

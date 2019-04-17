@@ -35,8 +35,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //remplir la ville
-        ajouterVilles();
+        // évite les doublons car quand on change d'orientation onCreate est appellé
+        if(MyObject.getCapitalsList() == null){
+            //remplir la ville
+            ajouterVilles();
+        }else{
+            Toast.makeText(MainActivity.this, "Nothing to do", Toast.LENGTH_SHORT).show();
+        }
 
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -57,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // test ajout object
     private void ajouterVilles() {
         MyObject.addCities(new MyObject("Paris", "France", "5M", "https://www.telegraph.co.uk/travel/destination/article130148.ece/ALTERNATES/w620/parisguidetower.jpg"));
         MyObject.addCities(new MyObject("Londres", "Angleterre", "10M", "https://cdn.londonandpartners.com/visit/london-organisations/tower-bridge/86830-640x360-tower-bridge-640.jpg"));
