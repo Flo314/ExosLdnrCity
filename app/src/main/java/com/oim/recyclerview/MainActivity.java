@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<MyObject> cities = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
             recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         }
 
+
+        onPostResume();
+
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
         //puis créer un MyAdapter, lui fournir notre liste de villes.
         //cet adapter servira à remplir notre recyclerview
         recyclerView.setAdapter(new MyAdapter(cities));
@@ -71,9 +80,11 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    // item du menu sélectionné
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemThatWasClicked = item.getItemId();
+        // click icon Alert
         if (itemThatWasClicked == R.id.action_alert) {
             Context context = MainActivity.this;
             String textToShow = "Alert clicked";
@@ -82,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
             // AlertDialog
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
+            // vue personnaliser de l'alerte dialoque
             View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.custom_dialog_layout, null);
 
             TextView title = (TextView) view.findViewById(R.id.title);
@@ -110,10 +122,12 @@ public class MainActivity extends AppCompatActivity {
             builder.show();
              return true;
         }
+        // click icon +
         if(itemThatWasClicked == R.id.action_add){
             Context context = MainActivity.this;
             String textToShow = "Add clicked";
             Toast.makeText(this, textToShow, Toast.LENGTH_SHORT).show();
+            // démarre l'activity qui représente le formulaire
             startActivity(new Intent(context, FormulaireAdd.class));
         }
         return super.onOptionsItemSelected(item);

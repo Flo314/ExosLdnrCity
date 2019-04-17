@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+// fourni le RecyclerView
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     List<MyObject> list;

@@ -1,10 +1,13 @@
 package com.oim.recyclerview;
 
+import java.util.List;
+
 public class MyObject {
     private String city;
     private String pays;
     private String numberOfLiving;
     private String imageUrl;
+    public static List<MyObject> capitalsList;
 
     public MyObject(String city, String pays, String numberOfLiving, String imageUrl) {
         this.city = city;
@@ -43,5 +46,13 @@ public class MyObject {
 
     public void setNumberOfLiving(String numberOfLiving) {
         this.numberOfLiving = numberOfLiving;
+    }
+
+    public static List<MyObject> getCapitalsList() {
+        return capitalsList;
+    }
+
+    public static void setCapitalsList(List<MyObject> capitalsList) {
+        MyObject.capitalsList = capitalsList;
     }
 }
