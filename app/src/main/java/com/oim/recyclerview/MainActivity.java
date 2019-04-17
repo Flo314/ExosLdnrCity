@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
-    private List<MyObject> cities = new ArrayList<>();
+    //private List<MyObject> cities = new ArrayList<>();
 
 
     @Override
@@ -51,26 +51,19 @@ public class MainActivity extends AppCompatActivity {
             recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         }
 
-
-        onPostResume();
-
-    }
-
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
         //puis créer un MyAdapter, lui fournir notre liste de villes.
         //cet adapter servira à remplir notre recyclerview
-        recyclerView.setAdapter(new MyAdapter(cities));
+        recyclerView.setAdapter(new MyAdapter(MyObject.getCapitalsList()));
+
     }
 
     private void ajouterVilles() {
-        cities.add(new MyObject("Paris", "France", "5M", "https://www.telegraph.co.uk/travel/destination/article130148.ece/ALTERNATES/w620/parisguidetower.jpg"));
-        cities.add(new MyObject("Londres", "Angleterre", "10M", "https://cdn.londonandpartners.com/visit/london-organisations/tower-bridge/86830-640x360-tower-bridge-640.jpg"));
-        cities.add(new MyObject("Berlin", "Allemagne", "4M", "http://tanned-allemagne.com/wp-content/uploads/2012/10/pano_rathaus_1280.jpg"));
-        cities.add(new MyObject("Madrid", "Espagne", "7M", "https://www.quizz.biz/uploads/quizz/1029758/8_cueYr.jpg"));
-        cities.add(new MyObject("Rome", "Italie", "3M", "http://retouralinnocence.com/wp-content/uploads/2013/05/Hotel-en-Italie-pour-les-Vacances2.jpg"));
-        cities.add(new MyObject("Moscou", "Russie", "6M", "http://www.choisir-ma-destination.com/uploads/_large_russie-moscou2.jpg"));
+        MyObject.addCities(new MyObject("Paris", "France", "5M", "https://www.telegraph.co.uk/travel/destination/article130148.ece/ALTERNATES/w620/parisguidetower.jpg"));
+        MyObject.addCities(new MyObject("Londres", "Angleterre", "10M", "https://cdn.londonandpartners.com/visit/london-organisations/tower-bridge/86830-640x360-tower-bridge-640.jpg"));
+        MyObject.addCities(new MyObject("Berlin", "Allemagne", "4M", "http://tanned-allemagne.com/wp-content/uploads/2012/10/pano_rathaus_1280.jpg"));
+        MyObject.addCities(new MyObject("Madrid", "Espagne", "7M", "https://www.quizz.biz/uploads/quizz/1029758/8_cueYr.jpg"));
+        MyObject.addCities(new MyObject("Rome", "Italie", "3M", "http://retouralinnocence.com/wp-content/uploads/2013/05/Hotel-en-Italie-pour-les-Vacances2.jpg"));
+        MyObject.addCities(new MyObject("Moscou", "Russie", "6M", "http://www.choisir-ma-destination.com/uploads/_large_russie-moscou2.jpg"));
     }
 
     // Menu

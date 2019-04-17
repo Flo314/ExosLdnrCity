@@ -1,5 +1,6 @@
 package com.oim.recyclerview;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyObject {
@@ -54,5 +55,14 @@ public class MyObject {
 
     public static void setCapitalsList(List<MyObject> capitalsList) {
         MyObject.capitalsList = capitalsList;
+    }
+
+    public static void addCities(MyObject cities){
+        if(capitalsList != null){
+            capitalsList.add(cities);
+        }else{
+            capitalsList = new ArrayList<>();
+            capitalsList.add(cities);
+        }
     }
 }

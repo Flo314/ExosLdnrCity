@@ -9,7 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +24,7 @@ public class FormulaireAdd extends AppCompatActivity {
     private EditText namePays;
     private EditText numberLiving;
     private EditText imgCity;
-    private List<MyObject> cities = new ArrayList<>();
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +39,10 @@ public class FormulaireAdd extends AppCompatActivity {
         namePays = findViewById(R.id.namepays);
         numberLiving = findViewById(R.id.numberliving);
         imgCity = findViewById(R.id.imgcity);
+
     }
 
-    protected void addCity(View view){
+    protected void registerCity(View view){
         // récup entré clavier
         String entercity = nameCity.getText().toString();
         String enterpays = namePays.getText().toString();
@@ -51,7 +55,7 @@ public class FormulaireAdd extends AppCompatActivity {
             SimpleDialog simpleDialog = new SimpleDialog();
             simpleDialog.show(getSupportFragmentManager(),"example simple dialog" );
         }else {
-            cities.add(new MyObject(entercity,enterpays,enterliving,enterimg));
+            MyObject.addCities(new MyObject(entercity,enterpays,enterliving,enterimg));
 
             entercity = null;
             enterpays = null;
@@ -59,8 +63,7 @@ public class FormulaireAdd extends AppCompatActivity {
             enterimg = null;
             Toast.makeText(this, "Successful insertion", Toast.LENGTH_SHORT).show();
             // démarre l'activity qui représente le formulaire
-            Context context = FormulaireAdd.this;
-            startActivity(new Intent(context, MainActivity.class));
+            finish();
         }
     }
 }

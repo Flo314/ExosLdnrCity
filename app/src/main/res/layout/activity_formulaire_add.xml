@@ -94,6 +94,6 @@
         android:textColor="#ffffff"
         android:background="@drawable/button_round"
         android:layout_marginTop="30dp"
-        android:onClick="addCity"/>
+        android:onClick="registerCity"/>
 
 </LinearLayout>
